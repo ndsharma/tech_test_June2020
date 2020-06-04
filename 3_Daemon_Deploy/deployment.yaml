@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: daemon-deploy
+  labels:
+    app: daemon-app
+spec:
+  replicas : 2
+  selector:
+    matchLabels:
+      app: daemon-app
+  template:
+    metadata:
+      labels:
+        app: daemon-app
+    spec:
+      containers:
+      - name: daemon-3000
+        image: nitinduttsharma/daemon3000:1.0
+        ports:
+        - containerPort: 3000

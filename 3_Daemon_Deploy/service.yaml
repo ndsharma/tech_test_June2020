@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: daemon-svc
+  labels:
+    app: daemon-app
+    Zone: dev
+    Version: v1
+spec:
+  type : NodePort
+  ports:
+  - port: 3000
+    nodePort: 30000
+    protocol: TCP
+  selector:
+    app:  daemon-app
